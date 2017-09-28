@@ -1,4 +1,5 @@
 from datetime import datetime
+import os
 
 from flask import Flask, render_template, request, redirect, url_for, session
 from passlib.hash import pbkdf2_sha256
@@ -66,4 +67,5 @@ app.secret_key = b'\x9d\xb1u\x08%\xe0\xd0p\x9bEL\xf8JC\xa3\xf4J(hAh\xa4\xcdw\x12
 
 
 if __name__ == "__main__":
-    app.run()
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
