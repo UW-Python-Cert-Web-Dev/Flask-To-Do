@@ -1,7 +1,14 @@
 from peewee import Model, CharField, DateTimeField, ForeignKeyField
-from playhouse.sqlite_ext import SqliteExtDatabase
+import os
+#from playhouse.sqlite_ext import SqliteExtDatabase
 
-db = SqliteExtDatabase('my_database.db')
+
+#db = SqliteExtDatabase('my_database.db')
+
+
+from playhouse.db_url import connect
+
+db = connect(os.environ.get('DATABASE_URL', 'sqlite:///my_database.db'))
 
 
 class User(Model):
