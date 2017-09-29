@@ -8,6 +8,7 @@ from passlib.hash import pbkdf2_sha256
 
 # Create the database tables for our model
 db.connect()
+db.drop_tables([User, Task], True)
 db.create_tables([User, Task])
 
 # We need a user to log in as! Create it here.

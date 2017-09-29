@@ -5,13 +5,13 @@
 <body>
     <nav>
         <div style="float:left">
-            <a href="/all">All tasks</a>
-            <a href="/incomplete">Do incomplete tasks</a>
-            <a href="/create">Create a task</a>
+            <a href="{{ url_for('all_tasks') }}">All tasks</a>
+            <a href="{{ url_for('incomplete_tasks') }}">Do incomplete tasks</a>
+            <a href="{{ url_for('create') }}">Create a task</a>
         </div>
         <div style="float:right">
-            {% if session.username %}{{ session.username }} (<a href="/logout">logout</a>)
-            {% else %}<a href="/login">login</a>
+            {% if session.username %}{{ session.username }} (<a href="{{ url_for('logout') }}">logout</a>)
+            {% else %}<a href="{{ url_for('login') }}">login</a>
             {% endif %}
         </div>
     </nav>
